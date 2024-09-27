@@ -143,14 +143,22 @@ const characters = [
   },
 ];
 
-const eyes = {};
+// const eyes = {};
+// characters.forEach((characters) => {
+//   if (eyes[characters.eye_color]) {
+//     eyes[characters.eye_color] += 1;
+//   } else {
+//     eyes[characters.eye_color] = 1;
+//   }
+// });
 
-characters.forEach((characters) => {
-  if (eyes[characters.eye_color]) {
-    eyes[characters.eye_color] += 1;
+const eyes1 = characters.reduce((tot, curr) => {
+  const pickEyes = curr.characters;
+  if (tot[pickEyes]) {
+    tot[pickEyes]++;
   } else {
-    eyes[characters.eye_color] = 1;
+    tot[pickEyes] = 1;
   }
-});
+}, {});
 
-console.log(eyes);
+console.log(eyes1);
